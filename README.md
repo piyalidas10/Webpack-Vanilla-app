@@ -30,3 +30,22 @@ webpack-vanilla-app/
 └── package.json
 ```
 
+## 🎯 What Webpack Is Doing Here
+
+Think of it like this:
+```
+index.js + math.js → Webpack → bundle.js → Browser
+```
+
+## 🧩 Why Use Webpack in Vanilla JS?
+
+Even without frameworks, you get:
+- Modular code (import/export)
+- Code bundling (fewer HTTP requests)
+- Tree shaking (remove unused code)
+- Minification (smaller files)
+- Dev server with hot reload
+
+
+
+
