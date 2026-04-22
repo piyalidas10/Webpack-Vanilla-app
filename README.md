@@ -35,15 +35,22 @@ npm install webpack webpack-cli --save-dev
 ```
 webpack-vanilla-app/
 │
+├── config/
+│   ├── webpack.common.js
+│   ├── webpack.dev.js
+│   └── webpack.prod.js
+│
 ├── src/
 │   ├── index.js
-│   └── math.js
+│   ├── styles.css
+│   └── components/
+│
+├── public/
+│   └── index.html
 │
 ├── dist/
-│
-├── index.html
-├── webpack.config.js
-└── package.json
+├── package.json
+└── babel.config.json
 ```
 
 ## 🎯 What Webpack Is Doing Here
