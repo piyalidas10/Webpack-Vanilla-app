@@ -20,9 +20,32 @@ module.exports = merge(common, {
   */ 
   module: {
     rules: [
+      // Webpack loaders are executed right-to-left, forming a transformation pipeline. Each loader must receive the correct intermediate format, so order is critical to ensure proper asset transformation.
+      
+      // ✅ CSS ONLY
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader'
+        ],
+      },
+      // ✅ Correct loader order : sass → postcss → css → style/extract
+      {
+        test: /\.(scss|sass)$/i,
+        use: [
+          'style-loader',  // inject styles into DOM
+          'css-loader',
+          'postcss-loader', // autoprefixer : postcss-loader processes CSS with PostCSS, allowing you to use plugins for tasks like autoprefixing, minification, and other transformations. It takes the output from css-loader and applies the specified PostCSS plugins to it before passing it to the next loader in the chain.
+          // compiles SCSS → CSS
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'), // 👈 important
+            },
+          },
+        ],
       },
     ],
   },
