@@ -26,11 +26,6 @@ cd webpack-vanilla-app
 npm init -y
 ```
 
-**Install Webpack:**
-```
-npm install webpack webpack-cli --save-dev
-```
-
 ## 📁 2. Project Structure
 ```
 webpack-vanilla-app/
