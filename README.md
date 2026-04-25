@@ -31,6 +31,36 @@ npm init -y
 npm install webpack webpack-cli --save-dev
 ```
 
+## ✅ Final Flow
+```
+index.html (template only)
+        ↓
+HtmlWebpackPlugin
+        ↓
+index.js (entry point)
+        ↓
+import CSS + images
+        ↓
+Webpack bundles everything
+        ↓
+dist/index.html (auto-injected)
+```
+
+✅ Final Clean Architecture
+```
+webpack.common.js
+  → JS, images, plugins
+
+webpack.dev.js
+  → CSS with style-loader
+
+webpack.prod.js
+  → CSS extraction (MiniCssExtractPlugin)
+```
+
+<img src="imgs/local_run.png" width="100%">
+<img src="imgs/npm_scripts.png" width="100%">
+
 ## 📁 2. Project Structure
 ```
 webpack-vanilla-app/
